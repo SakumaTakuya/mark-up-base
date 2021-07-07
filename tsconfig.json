@@ -1,11 +1,10 @@
 {
-"compilerOptions": {
+  "compilerOptions": {
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "ES2021"],
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -16,7 +15,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
-},
-"exclude": ["node_modules"],
-"include": ["**/*.ts", "**/*.tsx"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
