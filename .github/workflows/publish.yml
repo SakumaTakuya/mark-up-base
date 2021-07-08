@@ -28,7 +28,9 @@ jobs:
           npx can-npm-publish --verbose && npm publish || echo "Does not publish"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: package-version to git-tag
+      - name: export package version
+        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      - name: publish git tag with package version
         uses: pkgdeps/action-package-version-to-git-tag@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
