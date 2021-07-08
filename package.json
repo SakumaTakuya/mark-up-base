@@ -1,6 +1,6 @@
 {
-  "name": "mark-up-base",
-  "version": "1.0.0",
+  "name": "@SakumaTakuya/mark-up-base",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -8,8 +8,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest",
-    "prepublishOnly": "npm run build"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
@@ -55,5 +54,9 @@
     "testMatch": [
       "**/tests/**/*.test.ts"
     ]
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
   }
 }
