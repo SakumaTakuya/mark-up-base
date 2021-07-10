@@ -1,4 +1,4 @@
-import { lex } from '../src/lexer';
+import { lexRaw } from '../src/lexer';
 import { Token } from '../src/token';
 import { Scanner } from '../src/scanner';
 
@@ -29,36 +29,45 @@ describe('lexer test', () => {
     expect(scanner.indentReg.source).toBe('(?<=\\n) +');
   });
 
-  test('lex test', () => {
-    expect(lex(text, new Scanner())).toEqual<Token>({
-      children: [
-        {
-          children: [
-            {
-              content: '# h1',
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              content: '## h2',
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              content: '> cite',
-              children: [
-                {
-                  content: 'cite inner',
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    });
+  test('raw lex test', () => {
+    expect(lexRaw(text, new Scanner())).toEqual<Token[]>([
+      {
+        content: '',
+        children: [
+          {
+            content: '# h1',
+            children: [],
+          },
+        ],
+      },
+      {
+        content: '',
+        children: [
+          {
+            content: '## h2',
+            children: [],
+          },
+        ],
+      },
+      {
+        content: '',
+        children: [
+          {
+            content: '> cite',
+            children: [
+              {
+                content: '',
+                children: [
+                  {
+                    content: 'cite inner',
+                    children: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ]);
   });
 });
